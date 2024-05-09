@@ -1,24 +1,12 @@
-<form id="buscador">
-    <label for="buscado">Buscar:</label>
-    <input type="text" id="buscado" name="buscado">
-    <input type="submit" value="Buscar">
-</form>
-<div id="resultados"></div>
+<mat-form-field appearance="outline">
+    <mat-label>Búsqueda</mat-label>
+    <input matInput placeholder="Realiza tu búsqueda" [formControl]="searchCtrl">
+</mat-form-field>
 
-<div id="paginacion">
-    <button id="anterior">Anterior</button>
-    <button id="siguiente">Siguiente</button>
+<button mat-raised-button (click)="onClick($event)">Buscar</button>
+
+@if(dataFromBackend !== null){
+<div>
+    {{dataFromBackend | async | json}}
 </div>
-
-<form id="formulario">
-    <label for="matricula">Matrícula:</label>
-    <input type="text" id="matricula" name="matricula" required><br><br>
-
-    <label for="modelo">Modelo:</label>
-    <input type="text" id="modelo" name="modelo" required><br><br>
-
-    <label for="color">Color:</label>
-    <input type="text" id="color" name="color" required><br><br>
-
-    <input type="submit" value="Agregar Coche">
-</form>
+}

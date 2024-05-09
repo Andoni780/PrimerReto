@@ -1,6 +1,7 @@
 import { Injectable, OnInit, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LiscenseResponseData, LiscenseSearchRequest } from '../models/liscense-list.models';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,8 @@ import { Observable } from 'rxjs';
 export class LiscenseListerService {
   http = inject(HttpClient)
 
-  getDataFromBackend(data: any): Observable<any> {
-    
+  getDataFromBackend(searchRequest: LiscenseSearchRequest): Observable<LiscenseResponseData> {
 
-    return this.http.post('http://localhost:3000/submit', {
-      "page": 1,
-      "buscado": "2"
-    });
+    return this.http.post<LiscenseResponseData>('http://localhost:3000/submit', searchRequest)
   }
 }

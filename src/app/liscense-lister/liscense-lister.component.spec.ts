@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {Component} from '@angular/core';
+import {MatTableModule} from '@angular/material/table';
 
 import { LiscenseListerComponent } from './liscense-lister.component';
 
@@ -20,4 +22,5 @@ describe('LiscenseListerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });
