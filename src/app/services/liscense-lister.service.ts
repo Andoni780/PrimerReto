@@ -9,8 +9,9 @@ import { LiscenseResponseData, LiscenseSearchRequest } from '../models/liscense-
 export class LiscenseListerService {
   http = inject(HttpClient)
 
-  getDataFromBackend(searchRequest: LiscenseSearchRequest): Observable<LiscenseResponseData> {
+  getDataFromBackend(searchRequest: LiscenseSearchRequest): Observable<LiscenseResponseData[]> {
 
-    return this.http.post<LiscenseResponseData>('http://localhost:3000/submit', searchRequest)
+    return this.http.post<LiscenseResponseData[]>('http://localhost:3000/submit', searchRequest)
+    
   }
 }
